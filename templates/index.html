@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login" style="overflow:auto;height:500px;width:500px;">
+	<h1>Predict DIABETES Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    
+		<input type="text" name="Age" placeholder="Age" required="required" />
+		<input type="text" name="BP" placeholder="BP" required="required" />
+		<input type="text" name="BGR" placeholder="BGR" required="required" />
+		<input type="text" name="BU" placeholder="BU" required="required" />
+		<input type="text" name="Sc" placeholder="Sc" required="required" />
+		<input type="text" name="Sot" placeholder="Sot" required="required" />
+		<input type="text" name="Pot" placeholder="Pot" required="required" />
+		<input type="text" name="Hemo" placeholder="Hemo" required="required" />
+		<input type="text" name="Pcv" placeholder="Pcv" required="required" />
+		<input type="text" name="Wbcc" placeholder="Wbcc" required="required" />
+		<input type="text" name="Rbcc" placeholder="Rbcc" required="required" />
+		<input type="text" name="Sg" placeholder="sg(1.005/1.010/1.015/1.020/1.025)" required="required" />
+		<input type="text" name="Al" placeholder="Al(0/1/2/3/4)" required="required" />
+		<input type="text" name="Su" placeholder="Su(0/1/2/3/4/5)" required="required" />
+		<input type="text" name="Rbc" placeholder="Rbc(normal-0/abnormal-1)" required="required" />
+		<input type="text" name="pc" placeholder="pc(normal-0/abnormal-1)" required="required" />
+		<input type="text" name="Pcc" placeholder="Pcc(present-0/notpresent-1)" required="required" />
+		<input type="text" name="Ba" placeholder="Ba(present-0/notpresent-1)" required="required" />
+		<input type="text" name="Htn" placeholder="Htn(no-1/yes-0)" required="required" />
+		<input type="text" name="Dm" placeholder="Dm(no-1/yes-0)" required="required" />
+		<input type="text" name="Cad" placeholder="cad(no-1/yes-0)" required="required" />
+		<input type="text" name="Appet" placeholder="Appet(poor-1/good-0)" required="required" />
+		<input type="text" name="Pe" placeholder="Pe(no-1/yes-0)" required="required" />
+		<input type="text" name="Ane" placeholder="Ane(no-1/yes-0)" required="required" />
+			
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   {{ prediction_text }}
+
+</div>
+
+
+</body>
+</html>
